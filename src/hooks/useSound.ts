@@ -13,11 +13,11 @@ export function useSound() {
     if (isMuted) return;
 
     try {
-      // Updated paths to match the new location in dist/assets/sounds
+      // For Vercel deployments, we can use relative paths from the root
       const audio = new Audio(
         type === 'spin'
-          ? '/assets/sounds/spin.mp3'  // Updated path for production build
-          : '/assets/sounds/result.mp3'  // Updated path for production build
+          ? './sounds/spin.mp3'  // Relative path for Vercel deployment
+          : './sounds/result.mp3'  // Relative path for Vercel deployment
       );
       
       audio.load();
